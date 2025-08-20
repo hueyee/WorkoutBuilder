@@ -3,19 +3,14 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
 import javafx.stage.FileChooser;
 
 public class WorkoutEditorFrame extends JFrame {
     private WorkoutTreePanel treePanel;
     private DetailsPanel detailsPanel;
     private JPanel buttonPanel;
-    private boolean javaFXInitialized = false;
 
     public WorkoutEditorFrame(WorkoutEditorController controller) {
-        // Initialize JavaFX
-        initializeJavaFX();
-        
         setTitle("Workout Editor");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -53,17 +48,6 @@ public class WorkoutEditorFrame extends JFrame {
         add(treePanel, BorderLayout.WEST);
         add(detailsPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
-    }
-
-    /**
-     * Initialize JavaFX runtime for FileChooser
-     */
-    private void initializeJavaFX() {
-        if (!javaFXInitialized) {
-            // This will initialize JavaFX runtime
-            new JFXPanel();
-            javaFXInitialized = true;
-        }
     }
 
     /**
